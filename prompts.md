@@ -11,9 +11,9 @@ Transformations to the dataset include:
 1. Renaming columns using [this dictionary](https://docs.google.com/spreadsheets/d/11QyvU4QAeSRVq6Y1_ewtU6piuOfwcVKSt3oLvXW1Ia0/edit?usp=sharing) as reference
 2. Extracting Block and Lot as separate fields from RP1PRCLID. The Block and Lot values are found in the column RP1PRCLID. In the raw data, the string is encoded as up to 9 characters. Block values are within the first 5 characters and Lot numbers follow that and can be up to 4 characters.
 3. Creating a field called Parcel Number by concatenating Block and Lot. The [Parcel number](https://datasf.gitbook.io/draft-publishing-standards/standard-reference-data/basemap/parcels) is a concatenation of Block and Lot without any spaces. For example, if the Block is 0012 and Lot is 003A, the Parcel Number will be 0012003A. Add information on 
-  1. Exemption codes using the lookup in [this](https://drive.google.com/file/d/1helAPLkT11hlo18C9GbV0H2lNMD-hJjq/view?usp=sharing) table: EXEMPTION_CODES
-  2. Property Class codes using the lookup in [this](https://drive.google.com/file/d/1eucLS0aH2CI2H9cq_xEBP19rRzl_LYCJ/view?usp=sharing) table: PROPERTY_CODES
-  3. Neighborhood Codes using the lookup in [this](https://drive.google.com/file/d/1xoyb4-y-zmkEvgAAtdtHEulSfYinKX-z/view?usp=sharing) table: NEIGHBORHOOD_CODES
+    1. Exemption codes using the lookup in [this](https://drive.google.com/file/d/1helAPLkT11hlo18C9GbV0H2lNMD-hJjq/view?usp=sharing) table: EXEMPTION_CODES
+    2. Property Class codes using the lookup in [this](https://drive.google.com/file/d/1eucLS0aH2CI2H9cq_xEBP19rRzl_LYCJ/view?usp=sharing) table: PROPERTY_CODES
+    3. Neighborhood Codes using the lookup in [this](https://drive.google.com/file/d/1xoyb4-y-zmkEvgAAtdtHEulSfYinKX-z/view?usp=sharing) table: NEIGHBORHOOD_CODES
 4. Add information on Analysis Neighborhood and Supervisor district using [this](https://drive.google.com/file/d/1RZAPwqYk8yQpC-JaXBGSuBPo9U9E_mT6/view?usp=sharing) table (they can be joined by Parcel Number): PARCELS
 
 *Note: You only need to apply the transforms specified in the prompt and we do not expect your output to look exactly like the final published dataset for additional columns. For example, we do not expect you to format the date columns.
