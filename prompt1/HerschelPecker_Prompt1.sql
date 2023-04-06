@@ -3,12 +3,12 @@ CREATE OR REPLACE TABLE
 WITH 
   PROP AS (
     SELECT
-      left("class_code", 3) AS Class_Code
+      left("class_code", 3) AS cc3
       , "class_definition"
     FROM
       PROPERTY_CODES
     WHERE
-      class_code <> 'VCIX'
+      "class_code" NOT IN ('VCIX', 'TIC5')
   ),
   ALL_ASR AS (
     SELECT
@@ -169,7 +169,7 @@ ON
 LEFT JOIN
   PROP
 ON
-  A.RP1CLACDE = PROP.CLASS_CODE
+  A.RP1CLACDE = PROP.cc3
 LEFT JOIN
   NEIGHBORHOOD_CODES AS N
 ON
@@ -178,4 +178,12 @@ LEFT JOIN
   PARCELS AS Parcels
 ON
   replace(A.RP1PRCLID,' ') = Parcels."parcel_number"
+;
+
+UPDATE TABLE
+  ASR_ANALYTICS
+SET
+  Property_Class_Code_Definition = 'TIC Bldg 14 units or less'
+WHERE
+  Property_Class_Code = 'TIC'
 ;
